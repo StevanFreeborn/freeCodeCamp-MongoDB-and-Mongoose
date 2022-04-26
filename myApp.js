@@ -3,7 +3,7 @@ require('mongodb');
 
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true});
 
 const Schema = mongoose.Schema;
 
@@ -13,21 +13,21 @@ const personSchema = new Schema({
   favoriteFoods: [{type: String}]
 });
 
-const Person = mongoose.model("Person", personSchema);
+const Person = mongoose.model('Person', personSchema);
 
 const createAndSavePerson = (done) => {
   
   let stevanFreeborn = new Person({
-    name: "Stevan Freebonr",
-    age: "29",
-    favoriteFoods: ["thai", "steak", "rice"]
+    name: 'Stevan Freeborn',
+    age: 29,
+    favoriteFoods: ['thai', 'steak', 'rice']
   });
 
   stevanFreeborn.save((err, data) => {
     if(err) return console.error(err);
     done(null, data)
   });
-  
+
 };
 
 const createManyPeople = (arrayOfPeople, done) => {
