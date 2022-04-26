@@ -23,9 +23,9 @@ const createAndSavePerson = (done) => {
     favoriteFoods: ['thai', 'steak', 'rice']
   });
 
-  stevanFreeborn.save((err, data) => {
+  stevanFreeborn.save((err, person) => {
     if(err) return console.error(err);
-    done(null, data)
+    done(null, person)
   });
 
 };
@@ -37,9 +37,9 @@ const arrayOfPeople = [
 ];
 
 const createManyPeople = (arrayOfPeople, done) => {
-  arrayOfPeople.save((err, data) => {
+  Person.create(arrayOfPeople, (err, people) => {
     if(err) return console.error(err);
-    done(null, data)
+    done(null, people);
   })
 };
 
