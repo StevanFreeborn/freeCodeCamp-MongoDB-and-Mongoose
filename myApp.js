@@ -89,7 +89,7 @@ const findAndUpdate = (personName, done) => {
 
   personFound.findOneAndUpdate(query, update, options, (err, updatedPerson) => {
     if(err) return console.error(err);
-    done(null, updatedDoc);
+    done(null, updatedPerson);
   });
 };
 
